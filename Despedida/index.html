@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Fibonacci</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    #video-background {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(25, 25, 25, 0.8), rgba(10, 10, 10, 0.5));
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .title {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 300;
+    }
+
+    .social-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .social-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .social-card a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 1.2em;
+    }
+
+    .social-icon {
+      font-size: 1.5em;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      text-align: center;
+      width: 100%;
+      font-size: 0.9em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      
+      h2 {
+        font-size: 1.2em;
+      }
+      
+      .social-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="video-background">
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5
+  </video>
+  
+  <div class="overlay">
+    <div class="content">
+      <div class="title">
+        <h1>Feliz día de PI 3.141592654...</h1>
+        <h2>Si eres una mente brillante has llegado hasta aquí <br> Sígueme para seguir aprendiendo...</h2>
+      </div>
+      
+      <div class="social-container">
+        <div class="social-card">
+          <a href="https://www.facebook.com/luis.fibonacci" target="_blank">
+            <i class="fab fa-facebook social-icon"></i>
+            Facebook
+          </a>
+        </div>
+        
+        <div class="social-card">
+          <a href="https://www.instagram.com/00_x.dev_/" target="_blank">
+            <i class="fab fa-instagram social-icon"></i>
+            Instagram
+          </a>
+        </div>
+        
+        <div class="social-card">
+          <a href="https://www.tiktok.com/@gerardocastillofi" target="_blank">
+            <i class="fab fa-tiktok social-icon"></i>
+            TikTok
+          </a>
+        </div>
+        
+        <div class="social-card">
+          <a href="https://academiafibonacci.com.gt" target="_blank">
+            <i class="fas fa-globe social-icon"></i>
+            Sitio Web
+          </a>
+        </div>
+        
+        <div class="social-card">
+          <a href="https://api.whatsapp.com/send?phone=50247660639" target="_blank">
+            <i class="fab fa-whatsapp social-icon"></i>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      © 2023 Academia Fibonacci - Todos los derechos reservados
+    </footer>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      const video = document.getElementById('video-background');
+      // Aseguramos que el video no esté silenciado
+      video.muted = false;
+      // Intentamos reproducir el video
+      video.play().catch(error => {
+        console.error("El video no pudo reproducirse con sonido automáticamente:", error);
+      });
+    });
+  </script>
+</body>
+</html>
