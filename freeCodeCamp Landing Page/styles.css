@@ -1,0 +1,263 @@
+:root {
+    --primary-color: #f1c40f;
+    --secondary-color: orange;
+    --text-dark: #333;
+    --text-light: #666;
+    --spacing-lg: 40px;
+    --spacing-md: 20px;
+    --spacing-sm: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+#page-wrapper {
+    position: relative;
+    background: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+nav a {
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+#hero {
+    margin-top: 80px;
+    text-align: center;
+    padding: 120px 0 60px;
+    background: linear-gradient(rgba(241, 196, 15, 0.1), white);
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+#form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+#email {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--text-dark);
+    min-width: 250px;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+/* Servicios */
+#servicios {
+    padding: var(--spacing-lg) 0;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    min-width: 80px;
+}
+
+/* Video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin: var(--spacing-lg) 0;
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Planes */
+#planes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+}
+
+.plan {
+    border: 1px solid #ddd;
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.plan:hover {
+    transform: translateY(-5px);
+}
+
+.plan img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Footer */
+footer {
+    background: var(--text-dark);
+    color: white;
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+footer a {
+    color: white;
+    opacity: 0.8;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: var(--spacing-sm);
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    .grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .icon {
+        font-size: 2.5rem;
+    }
+
+    #planes {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        padding: 100px 0 40px;
+    }
+
+    #hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    footer ul {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    #hero h1 {
+        font-size: 3rem;
+    }
+}

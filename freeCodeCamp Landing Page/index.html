@@ -1,61 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Academia Fibonacci - Cursos de desarrollo Fullstack profesionales">
+    <meta name="keywords" content="programación, cursos, desarrollo web, fullstack, guatemala">
+    <title>Academia Fibonacci - Cursos de Desarrollo Fullstack</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
-    <header id="header">
-        <img src="https://www.academiafibonacci.com.gt/img/Academia.png" alt="Academia Fibonacci" id="header-img">
-        <nav id="nav-bar">
-            <ul>
-                <li><a href="" id="nav-link">Servicios</a></li>
-                <li><a href="" id="nav-link">¿Cómo funciona?</a></li>
-                <li><a href="" id="nav-link">Planes</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Aprende desarrollo Fullstack, envía tu correo</h2>
-            <form action="https://www.freecodecamp.com/email-submit" method="post" id="form">
-                <input type="email" name="" id="email" placeholder="Ingrese su correo para ser contactado">
-                <input type="submit" value="submit" id="sumbit">
-
-            </form>
-            <div class="info">
-                <div>
-                    <h2></h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus adipisci alias facere nihil, ad animi sequi soluta ea omnis corrupti quam ex exercitationem labore aspernatur? Saepe laudantium molestiae tenetur facere?</p>
-                </div>
-                <div>
-                    <h2></h2>
-                    <p>Rerum, autem? A delectus asperiores, veniam ut aut ipsa quaerat, quidem tempore cupiditate autem ipsum. Voluptates iste quos temporibus quasi quas nobis veniam distinctio voluptatum? Magni maiores minus quos ex.</p>
-                </div>
-                <div>
-                    <h2></h2>
-                    <p>Optio aut alias dicta quis molestias! Dolore, blanditiis nesciunt labore minus aspernatur ullam placeat officiis facilis ipsum illo perferendis ad eum beatae sint quae ab animi culpa debitis ex? Possimus.</p>
-                </div>
-
+    <div id="page-wrapper">
+        <header id="header">
+            <div class="logo">
+                <img src="https://www.academiafibonacci.com.gt/img/Academia.png" 
+                     alt="Logo Academia Fibonacci" 
+                     id="header-img">
             </div>
+            <nav id="nav-bar" role="navigation">
+                <ul>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#como_funciona" class="nav-link">¿Cómo funciona?</a></li>
+                    <li><a href="#planes" class="nav-link">Planes</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        </section>
-        <section>
-            <video id="video" width="640" height="360" id="video" controls>  
-                <source src="ruta/a/tu/video.mp4" type="video/mp4">  
-                <source src="ruta/a/tu/video.webm" type="video/webm">  
-                Tu navegador no soporta el elemento de video.  
-              </video>  
-        </section>
-        <section>
+        <main class="container">
+            <section id="hero">
+                <h1>Aprende desarrollo Fullstack profesional</h1>
+                <form action="https://www.freecodecamp.com/email-submit" method="post" id="form">
+                    <label for="email" class="hidden">Correo electrónico:</label>
+                    <input type="email" 
+                           name="email" 
+                           id="email"
+                           placeholder="Ingrese su correo para ser contactado"
+                           required>
+                    <input id="submit" type="submit" value="Comenzamos" class="btn" />
+                </form>
+            </section>
 
-        </section>
-    </main>
-    <footer>
-        
-    </footer>
+            <section id="servicios">
+                <div class="grid">
+                    <div class="icon" aria-hidden="true"><i class='bx bxs-certification'></i></div>
+                    <article class="desc">
+                        <h2>Certificación Internacional</h2>
+                        <p>Programas avalados por las principales empresas de tecnología a nivel mundial.</p>
+                    </article>
+                </div>
+                <div class="grid">
+                    <div class="icon" aria-hidden="true"><i class='bx bx-support'></i></div>
+                    <article class="desc">
+                        <h2>Soporte 24/7</h2>
+                        <p>Asesoría personalizada y resolución de dudas en tiempo real con expertos.</p>
+                    </article>
+                </div>
+                <div class="grid">
+                    <div class="icon" aria-hidden="true"><i class='bx bxs-graduation'></i></div>
+                    <article class="desc">
+                        <h2>Bolsa de Trabajo</h2>
+                        <p>Convenios con más de 100 empresas tecnológicas para tu inserción laboral.</p>
+                    </article>
+                </div>
+            </section>
 
+            <section id="como_funciona">
+                <div class="video-container">
+                    <iframe id="video"
+                            src="https://www.youtube.com/embed/jRTp74GXlEg"
+                            frameborder="0"
+                            allowfullscreen
+                            title="Video explicativo Academia Fibonacci"></iframe>
+                </div>
+            </section>
+
+            <section id="planes">
+                <article class="plan">
+                    <img src="1.png" 
+                         alt="Plan Básico - Fundamentos de programación - $99/mes">
+                    <button class="btn">Seleccionar</button>
+                </article>
+                <article class="plan">
+                    <img src="2.png" 
+                         alt="Plan Intermedio - Fullstack con JavaScript - $199/mes">
+                    <button class="btn">Seleccionar</button>
+                </article>
+                <article class="plan">
+                    <img src="3.png" 
+                         alt="Plan Avanzado - Fullstack con Python y AI - $299/mes">
+                    <button class="btn">Seleccionar</button>
+                </article>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <ul>
+                <li><a href="/politica-privacidad">Privacidad</a></li>
+                <li><a href="/terminos-servicio">Términos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <span>Copyright 2024, Academia Fibonacci. Todos los derechos reservados.</span>
+        </footer>
+    </div>
 </body>
 </html>
