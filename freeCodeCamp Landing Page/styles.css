@@ -18,7 +18,10 @@ body {
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
+    overflow-x: hidden; /* Previene scroll horizontal */
 }
+
+
 
 #page-wrapper {
     position: relative;
@@ -46,16 +49,19 @@ header {
 }
 
 .logo img {
-    max-width: 150px;
+    max-width: 80px;
     height: auto;
 }
 
 nav ul {
+    list-style-type: none;
     display: flex;
     gap: var(--spacing-lg);
 }
 
 nav a {
+    text-decoration: none;
+    color: var(--text-dark);
     font-weight: 700;
     transition: color 0.3s;
 }
@@ -64,8 +70,20 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+/* Estados de foco accesibles */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+input:focus-visible {
+    outline-color: var(--secondary-color);
+}
+
 /* Hero Section */
 #hero {
+    min-height: 100vh;
     margin-top: 80px;
     text-align: center;
     padding: 120px 0 60px;
@@ -99,6 +117,7 @@ nav a:hover {
     border: none;
     padding: 12px 30px;
     transition: background 0.3s;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -107,6 +126,7 @@ nav a:hover {
 
 /* Servicios */
 #servicios {
+    min-height: 100vh;
     padding: var(--spacing-lg) 0;
 }
 
@@ -123,6 +143,10 @@ nav a:hover {
     min-width: 80px;
 }
 
+#como_funciona{
+    min-height: 100vh;
+}
+
 /* Video */
 .video-container {
     position: relative;
@@ -132,6 +156,9 @@ nav a:hover {
 }
 
 #video {
+    transform: scale(0.55);
+    transform-origin: center;
+    margin: -100px 0; /* Compensa el espacio reducido */
     position: absolute;
     top: 0;
     left: 0;
@@ -141,6 +168,7 @@ nav a:hover {
 
 /* Planes */
 #planes {
+    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-md);
@@ -151,7 +179,7 @@ nav a:hover {
     border: 1px solid #ddd;
     padding: var(--spacing-md);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out; /* Animación mejorada */
 }
 
 .plan:hover {
@@ -166,7 +194,7 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background: var(--text-dark);
+    background: #2a2a2a; /* Mejor contraste */
     color: white;
     padding: var(--spacing-lg);
     text-align: center;
@@ -180,12 +208,18 @@ footer ul {
 }
 
 footer a {
-    color: white;
+    color: rgba(255,255,255,0.9); /* Texto más legible */
     opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
 footer a:hover {
     opacity: 1;
+}
+
+/* Margen para compensar header fijo */
+#servicios, #como_funciona, #planes {
+    scroll-margin-top: 100px;
 }
 
 /* Media Queries */
@@ -225,7 +259,8 @@ footer a:hover {
 
 @media (max-width: 480px) {
     #hero {
-        padding: 100px 0 40px;
+        margin-top: 60px; /* Reducido para móviles */
+        padding: 80px 0 30px;
     }
 
     #hero h1 {
@@ -234,6 +269,10 @@ footer a:hover {
 
     .btn {
         width: 100%;
+    }
+
+    .plan {
+        margin: 0 10px; /* Espaciado lateral en móviles */
     }
 
     .hidden {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Control de Calificaciones</title>
+</head>
+<body>
+<h1>Control de Calificaciones</h1>
+<label for="numAlumnos">Número de alumnos:</label>
+<input type="number" id="numAlumnos" min="1">
+<button onclick="crearInputs()">Crear Entradas</button>
+<div id="inputsContainer"></div>
+<button id="calcularBtn" style="display:none;"
+onclick="calcularPromedio()">Calcular Promedio</button>
+<h2 id="resultado"></h2>
+<script>
+function crearInputs() {
+let numAlumnos = document.getElementById("numAlumnos").value;
+let inputsContainer =
+document.getElementById("inputsContainer");
+inputsContainer.innerHTML = ""; // Limpiar entradas previas
+for (let i = 0; i < numAlumnos; i++) {
+inputsContainer.innerHTML += `
+<label>Calificación del alumno ${i + 1}:</label>
+<input type="number" class="calificaciones" min="0"
+max="100"><br>
+`;
+}
+document.getElementById("calcularBtn").style.display =
+"block"; // Mostrar botón de calcular
+}
+function calcularPromedio() {
+let calificaciones =
+document.getElementsByClassName("calificaciones");
+let suma = 0;
+for (let input of calificaciones) {
+suma += parseFloat(input.value);
+}
+let promedio = suma / calificaciones.length;
+let resultado = promedio >= 60 ? "Aprobado" : "Reprobado";
+document.getElementById("resultado").textContent = `Promedio:
+${promedio.toFixed(2)} - ${resultado}`;
+}
+</script>
+</body>
+</html>
