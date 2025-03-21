@@ -1,0 +1,96 @@
+body {
+    background-image: url(https://via.placeholder.com/800x600?text=Vinyl+Background);
+    font-family: sans-serif;
+    padding: 20px;
+    color: #ffffff; /* Texto en blanco */
+  }
+  
+  h1 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+  
+  .established {
+    font-style: italic;
+  }
+  
+  h1, h2, p {
+    text-align: center;
+  }
+  
+  .menu {
+    width: 80%;
+    background-color: #2c2c2c; /* Fondo oscuro */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 500px;
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  hr {
+    height: 2px;
+    background-color: #e50914; /* Acento rojo */
+    border-color: #e50914;
+  }
+  
+  .bottom-line {
+    margin-top: 25px;
+  }
+  
+  h1, h2 {
+    font-family: Impact, serif;
+  }
+  
+  .item p {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+  .record {
+    text-align: left;
+    width: 75%;
+  }
+  
+  .price {
+    text-align: right;
+    width: 25%;
+  }
+  
+  /* FOOTER */
+  
+  footer {
+    font-size: 14px;
+  }
+  
+  .address {
+    margin-bottom: 5px;
+  }
+  
+  a {
+    color: #ffffff; /* Enlaces en blanco */
+  }
+  
+  a:visited {
+    color: #ffffff;
+  }
+  
+  a:hover {
+    color: #e50914; /* Rojo en hover */
+  }
+  
+  a:active {
+    color: #e50914;
+  }

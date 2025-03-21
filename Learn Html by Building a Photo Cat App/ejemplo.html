@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GalacticPhotoApp</title>
+</head>
+<body>
+    <main>
+      <h1>GalacticPhotoApp</h1>
+      <section>
+        <h2>Space Photos</h2>
+        <p>Everyone loves <a href="https://example.com/space-photo1.jpg">spectacular space</a> images online!</p>
+        <p>See more <a target="_blank" href="https://spacephotos.com">space photos</a> in our gallery.</p>
+        <a href="https://spacephotos.com"><img src="https://example.com/space-photo2.jpg" alt="A breathtaking view of a galaxy."></a>
+      </section>
+      <section>
+        <h2>Space Facts</h2>
+        <h3>Things space explorers love:</h3>
+        <ul>
+          <li>stargazing</li>
+          <li>zero gravity</li>
+          <li>cosmic adventures</li>
+        </ul>
+        <figure>
+          <img src="https://example.com/space-photo3.jpg" alt="A view of the Milky Way.">
+          <figcaption>Explorers <em>love</em> the mysteries of space.</figcaption>  
+        </figure>
+        <h3>Top 3 challenges of space travel:</h3>
+        <ol>
+          <li>radiation exposure</li>
+          <li>isolation</li>
+          <li>technical malfunctions</li>
+        </ol>
+        <figure>
+          <img src="https://example.com/space-photo4.jpg" alt="Astronaut working on a space station.">
+          <figcaption>Travelers <strong>face</strong> unique challenges in space.</figcaption>  
+        </figure>
+      </section>
+      <section>
+        <h2>Space Form</h2>
+        <form action="https://spacephotos.com/submit-space-photo">
+          <fieldset>
+            <legend>Is your space subject more terrestrial or extraterrestrial?</legend>
+            <label><input id="terrestrial" type="radio" name="subject-type" value="terrestrial" checked> Terrestrial</label>
+            <label><input id="extraterrestrial" type="radio" name="subject-type" value="extraterrestrial"> Extraterrestrial</label>
+          </fieldset>
+          <fieldset>
+            <legend>What's the vibe of your space photo?</legend>
+            <input id="mysterious" type="checkbox" name="vibe" value="mysterious" checked> <label for="mysterious">Mysterious</label>
+            <input id="vibrant" type="checkbox" name="vibe" value="vibrant"> <label for="vibrant">Vibrant</label>
+            <input id="calm" type="checkbox" name="vibe" value="calm"> <label for="calm">Calm</label>
+          </fieldset>
+          <input type="text" name="spacephotourl" placeholder="space photo URL" required>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>
+        No Copyright - <a href="https://www.freecodecamp.org">freeCodeCamp.org</a>
+      </p>
+    </footer>
+</body>
+</html>
