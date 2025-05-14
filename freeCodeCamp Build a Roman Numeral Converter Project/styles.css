@@ -1,0 +1,116 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text for contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Center the title image */
+img {
+    width: 300px;
+    display: block;
+    margin: 20px auto; /* Add spacing around the image */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px; /* Add spacing below the title */
+}
+
+/* Center the form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px; /* Limit form width for better layout */
+    padding: 20px;
+    background-color: #1e1e1e; /* Slightly lighter background for contrast */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+fieldset {
+    border: 1px solid #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px; /* Add rounded corners */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold; /* Make labels more prominent */
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px; /* Increase padding for better usability */
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #2a2a2a; /* Match input background with theme */
+    color: #ffffff;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight input on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Add a slight zoom effect */
+}
+
+button:active {
+    transform: scale(1); /* Reset zoom on click */
+}
+
+/* Hide the output display div */
+.output {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    img {
+        width: 80%; /* Adjust image size for smaller screens */
+    }
+}
