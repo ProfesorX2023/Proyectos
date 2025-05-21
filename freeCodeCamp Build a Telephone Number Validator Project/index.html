@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Telephone Number Validator Project</title>
+    <style>
+        body {
+            background: #18191a;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #f1f1f1;
+        }
+
+        img{
+            display:block; 
+            margin: 0 auto; 
+            max-width:400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .phone-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .phone-background {
+            background: #222326;
+            border-radius: 40px;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37), 0 1.5px 0 #444 inset;
+            width: 340px;
+            padding: 40px 24px 24px 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phone-camera {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 12px;
+            background: #18191a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-camera::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background: #444;
+            border-radius: 50%;
+            margin: 0 2px;
+            box-shadow: 0 0 4px #000;
+        }
+
+        label {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            display: block;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            background: #33353a;
+            color: #f1f1f1;
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            outline: none;
+            box-shadow: 0 1px 2px #111 inset;
+            transition: background 0.2s;
+        }
+
+        input[type="text"]:focus {
+            background: #44464a;
+        }
+
+        #results-div {
+            min-height: 28px;
+            margin-bottom: 18px;
+            text-align: center;
+            font-size: 1rem;
+            color: #ffb347;
+        }
+
+        .phone-footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            margin: 0 6px;
+            padding: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 2px 8px #0003;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        @media (max-width: 400px) {
+            .phone-background {
+                width: 98vw;
+                padding: 24px 4vw 16px 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Logo" >
+    <h1>Validador de teléfonos en USA</h1>
+    <div class="phone-container">
+        <div class="phone-background">
+            <div class="phone-camera"></div>
+            <label for="user-input">Número de teléfono:</label>
+            <input type="text" id="user-input" />
+            <div id="results-div"></div>
+            <div class="phone-footer">
+                <button id="check-btn">Check</button>
+                <button id="clear-btn">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function isValidUSPhoneNumber(input) {
+            // Valid US phone number patterns:
+            // 1. Optional country code '1' with or without space
+            // 2. Area code: (555), 555, or 555
+            // 3. Separators: space or dash or none
+            // 4. 10 digits (or 11 with leading 1)
+            // 5. Parentheses must be balanced and correct
+            // 6. No extra characters
+
+            // Regex for all valid formats
+            const regex = /^(1\s?)?(\(\d{3}\)|\d{3})([\s\-])?\d{3}([\s\-])?\d{4}$/;
+
+            // Check for balanced parentheses
+            let open = (input.match(/\(/g) || []).length;
+            let close = (input.match(/\)/g) || []).length;
+            if (open !== close) return false;
+
+            // Parentheses must wrap area code only, if present
+            if (input.includes('(') || input.includes(')')) {
+                if (!/^\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{4}$/.test(
+                    input.replace(/^1\s?/, '')
+                )) {
+                    return false;
+                }
+            }
+
+            // Must match the main regex
+            return regex.test(input);
+        }
+
+        document.getElementById('check-btn').addEventListener('click', function() {
+            const input = document.getElementById('user-input').value.trim();
+            const resultsDiv = document.getElementById('results-div');
+            if (!input) {
+                alert('Please provide a phone number');
+                resultsDiv.textContent = '';
+                return;
+            }
+            if (isValidUSPhoneNumber(input)) {
+                resultsDiv.textContent = `Valid US number: ${input}`;
+            } else {
+                resultsDiv.textContent = `Invalid US number: ${input}`;
+            }
+        });
+
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            document.getElementById('user-input').value = '';
+            document.getElementById('results-div').textContent = '';
+        });
+    </script>
+</body>
+</html>

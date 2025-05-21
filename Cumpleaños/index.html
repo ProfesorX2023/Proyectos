@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Ti - Una Dedicatoria Especial</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f5f2;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* === OVERLAY === */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    #overlay h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+    #play-btn {
+      background: #f9bc60;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    #play-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #3a506b;
+      letter-spacing: 1px;
+    }
+    .profile-image {
+      width: 200px; height: 200px;
+      border-radius: 50%; object-fit: cover;
+      margin: 2rem auto;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    .profile-image:hover { transform: scale(1.05); }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 768px) {
+      main { grid-template-columns: 1fr 1fr; }
+    }
+    .section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+    }
+    .section.visible {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #3a506b;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+    }
+    .frases-list { list-style: none; }
+    .frases-list li {
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      border-left: 3px solid #f9bc60;
+      font-weight: 300;
+      transition: background-color 0.3s ease;
+    }
+    .frases-list li:hover { background-color: #f9f9f9; }
+
+    .texto-item { margin-bottom: 2rem; }
+    .texto-item h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #3a506b;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .texto-item p { font-size: 1rem; line-height: 1.8; }
+
+    footer {
+      background-color: #3a506b;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- OVERLAY -->
+  <div id="overlay">
+    <h2>Para Ti – Una Dedicatoria Especial</h2>
+    <button id="play-btn">▶️ Escuchar música</button>
+  </div>
+
+  <!-- AUDIO (silenciado para autoplay) -->
+  <audio id="bg-music" src="TanVacio2.mp3" loop muted></audio>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container">
+    <header>
+      <h1>Para Ti</h1>
+      <p>Una dedicatoria especial</p>
+      <img class="profile-image" src="imagen.jpg" alt="Imagen especial">
+    </header>
+
+    <main>
+      <section class="section" id="sec1">
+        <h2>Frases breves</h2>
+        <ul class="frases-list">
+          <li>Cada día recuerda tu fuerza y la luz que aportas a este mundo.</li>
+          <li>Tu sonrisa es la calma que todo lo demás necesita.</li>
+          <li>Gracias por estar, simplemente estando.</li>
+          <li>En tu presencia encuentro paz y claridad.</li>
+          <li>Eres un motivo constante de gratitud.</li>
+          <li>Tu voz convierte lo ordinario en algo especial.</li>
+          <li>A tu lado, todo tiene más sentido.</li>
+          <li>Tu energía positiva ilumina cada momento.</li>
+          <li>Me inspiras a ser mejor, sin decirlo.</li>
+          <li>Contemplo tu bondad como el mejor regalo.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="sec2">
+        <h2>Textos cortos</h2>
+        <div class="texto-item">
+          <h3>Para Sari</h3>
+          <p>Este espacio está dedicado a ti. Aquí encontrarás siempre un mensaje que refleje el respeto y la admiración que inspiras, sin adornos innecesarios, sólo la esencia de quien valora tu presencia.</p>
+        </div>
+        <div class="texto-item">
+          <h3>Pensamiento del día</h3>
+          <p>"Tu fuerza interior es el viento que impulsa muchas velas. Nunca dejes de brillar."</p>
+        </div>
+        <div class="texto-item">
+          <h3>Reflexión nocturna</h3>
+          <p>Cada noche guardo en silencio el agradecimiento por tu existencia. Es un gesto pequeño, pero sincero, que convierte la rutina en algo valioso.</p>
+        </div>
+        <div class="texto-item">
+          <h3>Instante de gratitud</h3>
+          <p>Hoy, en medio de cualquier actividad, me detuve un segundo para agradecer la fortuna de saber que estás ahí, iluminando cada paso.</p>
+        </div>
+        <div class="texto-item">
+          <h3>Nota personal</h3>
+          <p>Si algún día dudas de tu valía, recuerda que tu sola presencia es un regalo para quienes te rodean.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Este espacio siempre estará abierto para recordarte lo especial que eres. Sin promesas vacías ni confusiones: sólo respeto profundo, admiración y un sincero agradecimiento por ti.</p>
+    </footer>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const playBtn = document.getElementById('play-btn');
+    const audio   = document.getElementById('bg-music');
+    const sections = document.querySelectorAll('.section');
+
+    // Función para mostrar gradualmente las secciones
+    function revealSections() {
+      sections.forEach((sec, i) => {
+        setTimeout(() => sec.classList.add('visible'), i * 300);
+      });
+    }
+
+    playBtn.addEventListener('click', () => {
+      // Ocultar overlay
+      overlay.style.opacity = '0';
+      overlay.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => overlay.remove(), 500);
+
+      // Desmutear y reproducir audio
+      audio.muted = false;
+      audio.volume = 0.5;
+      audio.play().catch(e => console.log('No se pudo reproducir:', e));
+
+      // Revelar contenido con animaciones
+      revealSections();
+    });
+
+    // Intento de autoplay silenciado al cargar
+    window.addEventListener('load', () => {
+      audio.play().catch(() => {/* silence */});
+    });
+  </script>
+</body>
+</html>
