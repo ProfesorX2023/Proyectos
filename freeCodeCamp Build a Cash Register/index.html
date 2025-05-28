@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Cash Register</title>
+        <style>
+                * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --thm-bg: #181c24;
+    --thm-panel: #232b3b;
+    --thm-accent: #00c896;
+    --thm-yellow: #ffe66d;
+    --thm-text: #e0e6f0;
+    --thm-btn: #00c896;
+    --thm-btn-hover: #009e74;
+}
+
+body {
+    background-color: var(--thm-bg);
+    color: var(--thm-text);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 10px;
+}
+
+.freecodecamp-logo {
+    width: 400px;
+    
+    object-fit: contain;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--thm-yellow);
+    letter-spacing: 1px;
+}
+
+#change-due {
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--thm-accent);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0 20px;
+    background: var(--thm-panel);
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 12px #0006;
+}
+
+label {
+    font-size: 18px;
+    color: var(--thm-yellow);
+}
+
+.user-input {
+    height: 30px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--thm-accent);
+    background: #232b3b;
+    color: var(--thm-text);
+}
+
+.price-screen {
+    border: 4px solid var(--thm-accent);
+    background-color: var(--thm-panel);
+    height: 50px;
+    width: 220px;
+    color: var(--thm-yellow);
+    font-size: 1.2rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-left: 0;
+    margin-bottom: 8px;
+}
+
+#price {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.connector {
+    margin-left: 0;
+    background-color: var(--thm-accent);
+    height: 30px;
+    width: 40px;
+    border-radius: 0 0 8px 8px;
+}
+
+.top-register {
+    display: flex;
+    justify-content: space-around;
+    border-radius: 35px 35px 0 0;
+    padding-top: 20px;
+    background-color: var(--thm-panel);
+    height: 250px;
+    width: 325px;
+    box-shadow: 0 2px 12px #0008;
+    border: 2px solid var(--thm-accent);
+}
+
+.btns-container {
+    width: 25%;
+}
+
+.btn {
+    border-radius: 10%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--thm-accent);
+    margin: 2px 0;
+    transition: background 0.2s;
+}
+.btn:hover {
+    background-color: var(--thm-btn-hover);
+}
+
+.check-btn-styles {
+    cursor: pointer;
+    width: 120px;
+    height: 36px;
+    margin: 10px;
+    color: #181c24;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--thm-btn);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px #0004;
+    transition: background 0.2s;
+}
+.check-btn-styles:hover {
+    background-color: var(--thm-btn-hover);
+    color: var(--thm-yellow);
+}
+
+.cash-drawer-display {
+    font-size: 1.1rem;
+    background-color: #232b3b;
+    width: 55%;
+    height: 95%;
+    color: var(--thm-yellow);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--thm-accent);
+    box-shadow: 0 1px 6px #0004;
+}
+
+.bottom-register {
+    background-color: var(--thm-panel);
+    height: 50px;
+    width: 325px;
+    margin-top: 10px;
+    border-radius: 0 0 35px 35px;
+    border: 2px solid var(--thm-accent);
+    border-top: none;
+}
+
+.circle {
+    margin: 15px auto;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--thm-accent);
+}
+        </style>
+    </head>
+    <body>
+        <main>
+            <img
+                class="freecodecamp-logo"
+                src="Titulo4.png"
+                alt="freeCodeCamp Logo"
+            />
+            <h1>Cash Register Project</h1>
+            <div id="change-due"></div>
+            <div class="input-div">
+                <label for="cash">Enter cash from customer:</label>
+                <input type="number" id="cash" class="user-input" value="" />
+                <button class="check-btn-styles" id="purchase-btn">Purchase</button>
+            </div>
+            <div class="container">
+                <div class="top-display-screen-container">
+                    <p id="price-screen" class="price-screen"></p>
+                    <div class="connector"></div>
+                </div>
+                <div class="top-register">
+                    <div class="btns-container">
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                        <button class="btn"></button>
+                    </div>
+                    <div id="cash-drawer-display" class="cash-drawer-display"></div>
+                </div>
+                <div class="bottom-register">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </main>
+        <script>
+            const price = 19.5;
+            const cid = [
+                ["PENNY", 1.01],
+                ["NICKEL", 2.05],
+                ["DIME", 3.1],
+                ["QUARTER", 4.25],
+                ["ONE", 90],
+                ["FIVE", 55],
+                ["TEN", 20],
+                ["TWENTY", 60],
+                ["ONE HUNDRED", 100]
+            ];
+
+            const denom = [
+                ["ONE HUNDRED", 100],
+                ["TWENTY", 20],
+                ["TEN", 10],
+                ["FIVE", 5],
+                ["ONE", 1],
+                ["QUARTER", 0.25],
+                ["DIME", 0.1],
+                ["NICKEL", 0.05],
+                ["PENNY", 0.01]
+            ];
+
+            document.getElementById("price-screen").textContent = `Total: $${price}`;
+
+            function checkCashRegister(price, cash, cid) {
+                let change = cash - price;
+                let originalChange = change;
+                let cidCopy = JSON.parse(JSON.stringify(cid));
+                let changeArr = [];
+                let totalCid = cid.reduce((sum, curr) => sum + curr[1], 0);
+                totalCid = Math.round(totalCid * 100) / 100;
+
+                if (change > totalCid) {
+                    return {status: "INSUFFICIENT_FUNDS", change: []};
+                }
+                if (change === totalCid) {
+                    // Return all cash in drawer
+                    return {status: "CLOSED", change: cid};
+                }
+                for (let [name, val] of denom) {
+                    let cidDenom = cidCopy.find(x => x[0] === name)[1];
+                    let toReturn = 0;
+                    while (change >= val && cidDenom > 0) {
+                        change -= val;
+                        change = Math.round(change * 100) / 100;
+                        cidDenom -= val;
+                        toReturn += val;
+                        cidDenom = Math.round(cidDenom * 100) / 100;
+                    }
+                    if (toReturn > 0) {
+                        changeArr.push([name, Math.round(toReturn * 100) / 100]);
+                        // Update cidCopy
+                        cidCopy.find(x => x[0] === name)[1] = cidDenom;
+                    }
+                }
+                if (change > 0) {
+                    return {status: "INSUFFICIENT_FUNDS", change: []};
+                }
+                return {status: "OPEN", change: changeArr};
+            }
+
+            document.getElementById("purchase-btn").addEventListener("click", function() {
+                const cashInput = document.getElementById("cash");
+                const changeDue = document.getElementById("change-due");
+                let cash = Number(cashInput.value);
+
+                if (cash < price) {
+                    alert("Customer does not have enough money to purchase the item");
+                    return;
+                }
+                if (cash === price) {
+                    changeDue.textContent = "No change due - customer paid with exact cash";
+                    return;
+                }
+                // Deep copy cid for each transaction
+                let result = checkCashRegister(price, cash, JSON.parse(JSON.stringify(cid)));
+                if (result.status === "INSUFFICIENT_FUNDS") {
+                    changeDue.textContent = "Status: INSUFFICIENT_FUNDS";
+                } else if (result.status === "CLOSED") {
+                    let str = "Status: CLOSED";
+                    result.change.forEach(([name, amt]) => {
+                        if (amt > 0) str += ` ${name}: $${amt}`;
+                    });
+                    changeDue.textContent = str;
+                } else if (result.status === "OPEN") {
+                    let str = "Status: OPEN";
+                    result.change.forEach(([name, amt]) => {
+                        if (amt > 0) str += ` ${name}: $${amt}`;
+                    });
+                    changeDue.textContent = str;
+                }
+            });
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>

